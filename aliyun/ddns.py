@@ -94,7 +94,7 @@ class AliDDNS:
         print('{}.{} -> {}'.format(dns_rr, dns_domain, dns_value))
         return result
 
-    def ddns(self, ip, rr):
+    def ddns(self, rr, ip):
         records = self.get_records()
         rec = [r for r in records if r['Type'] == 'A' and r['RR'] == rr]
         if len(rec):
@@ -124,4 +124,4 @@ if __name__ == '__main__':
     alidns = AliDDNS('aura.ren', config['AccessKeyId'], config['AccessKeySecret'])
     recs = alidns.get_records()
     print(recs)
-    # alidns.ddns('192.168.1.1', 'test')
+    # alidns.ddns('test','192.168.1.1')
