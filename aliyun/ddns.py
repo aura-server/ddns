@@ -55,7 +55,7 @@ class AliDDNS:
         return json.loads(result)
 
     def get_records(self):
-        if self.records_cache and self.records_cache_time and datetime.now() - self.records_cache_time < timedelta(minutes=1):
+        if self.records_cache and self.records_cache_time and datetime.now() - self.records_cache_time < timedelta(minutes=10):
             return self.records_cache
         print('get records')
         request = DescribeDomainRecordsRequest.DescribeDomainRecordsRequest()
